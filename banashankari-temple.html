@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Banashankari Amma Temple · Bengaluru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --gold: #C8960C;
+    --gold-light: #F0C040;
+    --gold-pale: #FFF8E7;
+    --deep-red: #7B1A1A;
+    --red-mid: #A0291A;
+    --cream: #FAF3E0;
+    --dark: #1A0A00;
+    --stone: #8B7355;
+    --green: #2D5016;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(200,150,12,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(160,41,26,0.35) 0%, transparent 55%),
+      linear-gradient(180deg, #0D0400 0%, #1A0A00 60%, #0D0400 100%);
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8960C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events:none;
+    opacity:.8;
+  }
+  .hero-om {
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(200,150,12,0.6);
+    margin-bottom: .5rem;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{text-shadow:0 0 30px rgba(200,150,12,.5)} 50%{text-shadow:0 0 70px rgba(240,192,64,.9)} }
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 5vw, 3.2rem);
+    color: var(--gold-light);
+    letter-spacing: .04em;
+    line-height: 1.2;
+    text-shadow: 0 2px 20px rgba(200,150,12,.4);
+  }
+  .hero-sub {
+    font-size: clamp(.95rem, 2.5vw, 1.3rem);
+    color: rgba(240,192,64,.7);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin: .6rem 0 2rem;
+    font-style: italic;
+  }
+  .hero-divider {
+    width: 220px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 1.8rem;
+  }
+  .hero-desc {
+    max-width: 680px;
+    font-size: clamp(1rem, 2.2vw, 1.18rem);
+    line-height: 1.8;
+    color: rgba(250,243,224,.85);
+    margin-bottom: 2.5rem;
+  }
+  .hero-badges {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .badge {
+    border: 1px solid rgba(200,150,12,.4);
+    border-radius: 40px;
+    padding: .4rem 1.1rem;
+    font-size: .88rem;
+    color: var(--gold-light);
+    letter-spacing: .08em;
+    background: rgba(200,150,12,.08);
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: rgba(200,150,12,.5); font-size: .8rem; letter-spacing: .15em;
+    text-transform: uppercase; text-align: center;
+    animation: bob 2s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,4,0,.95);
+    border-bottom: 1px solid rgba(200,150,12,.25);
+    backdrop-filter: blur(10px);
+    display: flex; gap: 0; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    color: rgba(240,192,64,.7); text-decoration: none;
+    padding: .9rem 1.3rem;
+    font-size: .83rem; letter-spacing: .1em; text-transform: uppercase;
+    white-space: nowrap; transition: color .2s;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover, nav a.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: .78rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .5rem;
+  }
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    color: var(--gold-light);
+    line-height: 1.25; margin-bottom: 1.2rem;
+  }
+  .section-divider {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── FLOOR PLAN ── */
+  #floorplan { background: linear-gradient(180deg, #0D0400 0%, #120600 100%); }
+  .floorplan-wrap {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media(max-width:820px){ .floorplan-wrap { grid-template-columns:1fr; } }
+  .map-container {
+    position: relative;
+    border: 1px solid rgba(200,150,12,.3);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #1e0d04;
+    cursor: crosshair;
+  }
+  .map-container svg {
+    width: 100%; height: auto; display: block;
+  }
+  .hotspot {
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .hotspot circle {
+    fill: var(--deep-red);
+    stroke: var(--gold);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 6px rgba(200,150,12,.6));
+    transition: all .2s;
+  }
+  .hotspot:hover circle, .hotspot.active circle {
+    fill: var(--gold);
+    stroke: var(--gold-light);
+    filter: drop-shadow(0 0 12px rgba(240,192,64,.9));
+  }
+  .hotspot text {
+    fill: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── INFO PANEL ── */
+  .info-panel {
+    background: linear-gradient(135deg, rgba(123,26,26,.15), rgba(200,150,12,.08));
+    border: 1px solid rgba(200,150,12,.25);
+    border-radius: 12px;
+    padding: 1.8rem;
+    position: sticky; top: 70px;
+  }
+  .info-panel-placeholder {
+    text-align: center;
+    color: rgba(200,150,12,.4);
+    padding: 3rem 0;
+  }
+  .info-panel-placeholder .tap-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .info-panel h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem; color: var(--gold-light);
+    margin-bottom: .3rem;
+  }
+  .info-panel .point-num {
+    display: inline-block;
+    background: var(--deep-red);
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 50%; width: 28px; height: 28px;
+    line-height: 26px; text-align: center;
+    font-size: .8rem; font-weight: bold;
+    margin-bottom: .8rem;
+  }
+  .info-panel p {
+    font-size: .98rem; line-height: 1.75;
+    color: rgba(250,243,224,.85);
+    margin-bottom: 1rem;
+  }
+  .info-panel .kannada-text {
+    font-family: 'Noto Sans Kannada', sans-serif;
+    font-size: .92rem; line-height: 1.7;
+    color: rgba(240,192,64,.75);
+    border-top: 1px solid rgba(200,150,12,.2);
+    padding-top: .8rem; margin-top: .8rem;
+  }
+  .lang-btns {
+    display: flex; gap: .6rem; margin-bottom: 1rem; flex-wrap: wrap;
+  }
+  .lang-btn {
+    padding: .4rem .9rem;
+    border: 1px solid rgba(200,150,12,.4);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--gold-light);
+    font-size: .82rem; cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all .2s;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold); color: var(--dark);
+  }
+  .audio-bar {
+    display: flex; gap: .8rem; align-items: center;
+    margin-top: 1.2rem;
+    background: rgba(0,0,0,.3);
+    border-radius: 8px; padding: .7rem 1rem;
+  }
+  .play-btn {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--gold); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--dark);
+    transition: all .2s; flex-shrink: 0;
+  }
+  .play-btn:hover { background: var(--gold-light); transform: scale(1.08); }
+  .play-btn.playing { animation: spin-ring 1s linear infinite; }
+  @keyframes spin-ring {
+    0%{box-shadow:0 0 0 0 rgba(200,150,12,.6)}
+    70%{box-shadow:0 0 0 10px rgba(200,150,12,0)}
+    100%{box-shadow:0 0 0 0 rgba(200,150,12,0)}
+  }
+  .audio-label { font-size: .82rem; color: rgba(240,192,64,.7); }
+  .audio-label strong { display: block; color: var(--gold-light); font-size: .9rem; }
+  .stop-btn {
+    margin-left: auto; background: transparent;
+    border: 1px solid rgba(200,150,12,.3);
+    color: rgba(200,150,12,.6); border-radius: 6px;
+    padding: .3rem .6rem; cursor: pointer; font-size: .8rem;
+    transition: all .2s;
+  }
+  .stop-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: #120600; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  @media(max-width:720px){ .about-grid{grid-template-columns:1fr;} }
+  .about-card {
+    background: rgba(200,150,12,.05);
+    border: 1px solid rgba(200,150,12,.15);
+    border-radius: 10px; padding: 1.8rem;
+  }
+  .about-card h4 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem; color: var(--gold-light);
+    margin-bottom: .8rem;
+  }
+  .about-card p {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(250,243,224,.82);
+  }
+  .about-card .icon { font-size: 2rem; margin-bottom: .8rem; }
+
+  /* ── TIMINGS ── */
+  #timings { background: linear-gradient(180deg, #0D0400 0%, #120600 100%); }
+  .timings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .timing-card {
+    background: rgba(200,150,12,.06);
+    border: 1px solid rgba(200,150,12,.2);
+    border-radius: 10px; padding: 1.4rem;
+    text-align: center;
+  }
+  .timing-card .time {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.4rem; color: var(--gold-light);
+    margin-bottom: .3rem;
+  }
+  .timing-card .label { font-size: .85rem; color: rgba(200,150,12,.7); letter-spacing: .1em; }
+  .timing-card .desc { font-size: .9rem; color: rgba(250,243,224,.7); margin-top: .4rem; }
+
+  /* ── VISITOR GUIDE ── */
+  #visit { background: #120600; }
+  .tips-list { list-style: none; }
+  .tips-list li {
+    padding: .9rem 0;
+    border-bottom: 1px solid rgba(200,150,12,.1);
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 1rem; line-height: 1.6;
+    color: rgba(250,243,224,.82);
+  }
+  .tips-list li:last-child { border-bottom: none; }
+  .tips-list li .tip-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+
+  /* ── FESTIVALS ── */
+  #festivals { background: linear-gradient(180deg, #0D0400, #120600); }
+  .festival-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+  .festival-card {
+    background: rgba(123,26,26,.15);
+    border: 1px solid rgba(200,150,12,.2);
+    border-radius: 10px; padding: 1.4rem;
+  }
+  .festival-card h4 {
+    color: var(--gold-light); font-size: 1.05rem;
+    margin-bottom: .4rem;
+  }
+  .festival-card .month {
+    font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .6rem;
+  }
+  .festival-card p {
+    font-size: .92rem; color: rgba(250,243,224,.75); line-height: 1.6;
+  }
+
+  /* ── HOW TO REACH ── */
+  #reach { background: #120600; }
+  .reach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.2rem;
+  }
+  .reach-card {
+    background: rgba(200,150,12,.05);
+    border: 1px solid rgba(200,150,12,.15);
+    border-radius: 10px; padding: 1.4rem;
+    text-align: center;
+  }
+  .reach-card .icon { font-size: 2rem; margin-bottom: .6rem; }
+  .reach-card h4 { color: var(--gold-light); margin-bottom: .5rem; font-size: 1rem; }
+  .reach-card p { font-size: .9rem; color: rgba(250,243,224,.75); line-height: 1.6; }
+
+  /* ── QR ── */
+  #qr-section { background: linear-gradient(180deg, #0D0400, #120600); text-align: center; }
+  #qrcode {
+    display: inline-block;
+    padding: 1rem; background: white; border-radius: 10px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(200,150,12,.4);
+    margin: 2rem auto;
+  }
+  .qr-url {
+    font-size: .85rem; color: rgba(200,150,12,.6);
+    letter-spacing: .1em; margin-top: .5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0A0300;
+    border-top: 1px solid rgba(200,150,12,.15);
+    text-align: center; padding: 2.5rem 1rem;
+    font-size: .85rem; color: rgba(200,150,12,.4);
+    letter-spacing: .08em;
+  }
+  footer strong { color: rgba(200,150,12,.7); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 1rem;
+    background: rgba(13,4,0,.95);
+    border: 1px solid var(--gold);
+    border-radius: 8px; padding: .8rem 1.2rem;
+    color: var(--gold-light); font-size: .9rem;
+    transform: translateY(100px); opacity: 0;
+    transition: all .35s; z-index: 999;
+    pointer-events: none;
+  }
+  .toast.show { transform: none; opacity: 1; }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: .4rem;
+    font-size: .8rem; color: rgba(240,192,64,.7); cursor: pointer;
+    padding: .3rem .6rem;
+    border: 1px solid rgba(200,150,12,.2);
+    border-radius: 20px; transition: all .2s;
+  }
+  .legend-item:hover { border-color: var(--gold); color: var(--gold-light); }
+  .legend-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--deep-red);
+    border: 1px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  .highlight-bar {
+    background: linear-gradient(90deg, rgba(123,26,26,.3), rgba(200,150,12,.1), rgba(123,26,26,.3));
+    border: 1px solid rgba(200,150,12,.25);
+    border-radius: 8px; padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(240,192,64,.85);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-om">ॐ</div>
+  <h1 class="hero-title">Sri Banashankari<br>Amma Temple</h1>
+  <p class="hero-sub">Banashankari · Bengaluru · Karnataka</p>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">
+    A sacred shrine dedicated to Goddess Banashankari — the sixth incarnation of Durga —
+    nestled in South Bengaluru. Established in 1915 and rooted in a tradition over 1,400 years old,
+    this is Bengaluru's most revered and richest temple.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">Est. 1915 · Kanakapura Road</span>
+    <span class="badge">Open 6:00 AM – 9:00 PM Daily</span>
+    <span class="badge">Special Pujas: Tue · Fri · Sun</span>
+    <span class="badge">Rahukala Worship</span>
+  </div>
+  <div class="scroll-hint">↓ &nbsp; Explore the Temple &nbsp; ↓</div>
+</section>
+
+<!-- NAV -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#floorplan">Floor Plan</a>
+  <a href="#about">History</a>
+  <a href="#timings">Timings & Puja</a>
+  <a href="#festivals">Festivals</a>
+  <a href="#visit">Visitor Guide</a>
+  <a href="#reach">How to Reach</a>
+  <a href="#qr-section">QR Code</a>
+</nav>
+
+<!-- FLOOR PLAN -->
+<section id="floorplan">
+  <div class="section-inner">
+    <div class="section-label">Interactive Guide</div>
+    <h2 class="section-title">Temple Floor Plan</h2>
+    <div class="section-divider"></div>
+
+    <div class="highlight-bar">
+      🎵 Tap any numbered marker on the map to hear an audio description in English or Kannada
+    </div>
+
+    <div class="floorplan-wrap">
+      <!-- SVG MAP -->
+      <div class="map-container">
+        <svg viewBox="0 0 540 580" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="540" height="580" fill="#1e0d04"/>
+          <!-- Outer wall -->
+          <rect x="20" y="30" width="480" height="490" rx="4" fill="#2d1507" stroke="#8B7355" stroke-width="2"/>
+          <!-- Inner courtyard -->
+          <rect x="60" y="70" width="400" height="410" rx="2" fill="#3a1a08" stroke="#6b5a3a" stroke-width="1"/>
+          <!-- Compound fill -->
+          <rect x="62" y="72" width="396" height="406" fill="#2a1004"/>
+
+          <!-- Trees (circles) -->
+          <circle cx="115" cy="115" r="22" fill="#1a3d0a" stroke="#2d5016" stroke-width="2"/>
+          <circle cx="115" cy="115" r="14" fill="#2d5016"/>
+          <circle cx="410" cy="115" r="22" fill="#1a3d0a" stroke="#2d5016" stroke-width="2"/>
+          <circle cx="410" cy="115" r="14" fill="#2d5016"/>
+          <circle cx="410" cy="360" r="22" fill="#1a3d0a" stroke="#2d5016" stroke-width="2"/>
+          <circle cx="410" cy="360" r="14" fill="#2d5016"/>
+          <circle cx="115" cy="420" r="20" fill="#1a3d0a" stroke="#2d5016" stroke-width="2"/>
+          <circle cx="115" cy="420" r="12" fill="#2d5016"/>
+
+          <!-- Main Temple Structure (nested rectangles) -->
+          <!-- Outer mandapa -->
+          <rect x="170" y="85" width="180" height="220" rx="2" fill="#3d1e0c" stroke="#8B7355" stroke-width="2"/>
+          <!-- Mid level -->
+          <rect x="188" y="100" width="144" height="188" rx="2" fill="#4a2410" stroke="#6b5a3a" stroke-width="1.5"/>
+          <!-- Inner level -->
+          <rect x="205" y="115" width="110" height="160" rx="2" fill="#5c2d12" stroke="#C8960C" stroke-width="1.5"/>
+          <!-- Sanctum / Maha Mandapa -->
+          <rect x="218" y="128" width="84" height="80" rx="2" fill="#7B3012" stroke="#C8960C" stroke-width="2"/>
+          <!-- Sanctum dome glow -->
+          <ellipse cx="260" cy="165" rx="30" ry="28" fill="#C8960C" opacity=".15"/>
+          <ellipse cx="260" cy="165" rx="18" ry="16" fill="#C8960C" opacity=".25"/>
+
+          <!-- Mukh Mandapa corridor down -->
+          <rect x="228" y="208" width="64" height="55" fill="#4a2410" stroke="#6b5a3a" stroke-width="1.5"/>
+          <!-- Ardha Mandapa -->
+          <rect x="236" y="263" width="48" height="50" fill="#3d1e0c" stroke="#8B7355" stroke-width="1.5"/>
+
+          <!-- Steps / approach -->
+          <rect x="244" y="313" width="32" height="14" fill="#2d1507" stroke="#6b5a3a" stroke-width="1"/>
+          <rect x="248" y="327" width="24" height="10" fill="#251004" stroke="#6b5a3a" stroke-width="1"/>
+
+          <!-- Dwaaja Stambha (flag post) -->
+          <rect x="257" y="337" width="6" height="70" fill="#C8960C" rx="3"/>
+          <polygon points="263,337 280,345 263,353" fill="#F0C040"/>
+
+          <!-- Chowdeshwari Temple (8) - top left cluster -->
+          <rect x="78" y="210" width="48" height="55" rx="2" fill="#3d1e0c" stroke="#8B7355" stroke-width="1.5"/>
+          <polygon points="102,200 80,214 124,214" fill="#5c2d12"/>
+          <rect x="88" y="195" width="28" height="5" fill="#C8960C"/>
+
+          <!-- Durga Devi Temple (9) -->
+          <rect x="132" y="210" width="48" height="55" rx="2" fill="#3d1e0c" stroke="#8B7355" stroke-width="1.5"/>
+          <polygon points="156,200 134,214 178,214" fill="#5c2d12"/>
+          <rect x="142" y="195" width="28" height="5" fill="#C8960C"/>
+
+          <!-- Navagraha Temple (7) - right side -->
+          <rect x="350" y="230" width="55" height="65" rx="2" fill="#3d1e0c" stroke="#8B7355" stroke-width="1.5"/>
+          <polygon points="377,218 352,234 402,234" fill="#5c2d12"/>
+          <rect x="362" y="213" width="30" height="5" fill="#C8960C"/>
+
+          <!-- Spherical stone (10) -->
+          <circle cx="100" cy="355" r="14" fill="#4a4a4a" stroke="#8B7355" stroke-width="1.5"/>
+          <ellipse cx="100" cy="352" rx="6" ry="5" fill="#6b6b6b" opacity=".5"/>
+
+          <!-- Lemon lamp stand (11) -->
+          <rect x="138" y="346" width="8" height="24" fill="#C8960C" rx="2"/>
+          <circle cx="142" cy="340" r="5" fill="#F0C040"/>
+
+          <!-- Main Entrance arch (1) -->
+          <rect x="225" y="520" width="60" height="30" rx="4" fill="#3d1e0c" stroke="#C8960C" stroke-width="2"/>
+          <path d="M225,520 Q255,505 285,520" fill="#5c2d12" stroke="#C8960C" stroke-width="1.5"/>
+
+          <!-- Secondary Entrance (2) -->
+          <rect x="380" y="520" width="55" height="28" rx="4" fill="#3d1e0c" stroke="#8B7355" stroke-width="1.5"/>
+          <path d="M380,520 Q407,508 435,520" fill="#4a2410" stroke="#8B7355" stroke-width="1.5"/>
+
+          <!-- Outer boundary / gopuram pillars decoration -->
+          <g stroke="#6b5a3a" stroke-width="1" fill="none" opacity=".4">
+            <line x1="20" y1="60" x2="20" y2="490"/>
+            <line x1="500" y1="60" x2="500" y2="490"/>
+          </g>
+
+          <!-- HOTSPOTS -->
+          <!-- 1: Main Entrance (West) -->
+          <g class="hotspot" data-id="1" onclick="selectPoint(1)">
+            <circle cx="255" cy="550" r="14" class="hs-circle"/>
+            <text x="255" y="555" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">1</text>
+          </g>
+          <!-- 2: Secondary Entrance (East) -->
+          <g class="hotspot" data-id="2" onclick="selectPoint(2)">
+            <circle cx="407" cy="548" r="14" class="hs-circle"/>
+            <text x="407" y="553" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">2</text>
+          </g>
+          <!-- 3: Mukh Mandapa -->
+          <g class="hotspot" data-id="3" onclick="selectPoint(3)">
+            <circle cx="260" cy="233" r="14" class="hs-circle"/>
+            <text x="260" y="238" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">3</text>
+          </g>
+          <!-- 4: Dwaaja Stambha -->
+          <g class="hotspot" data-id="4" onclick="selectPoint(4)">
+            <circle cx="260" cy="415" r="14" class="hs-circle"/>
+            <text x="260" y="420" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">4</text>
+          </g>
+          <!-- 5: Ardha Mandapa -->
+          <g class="hotspot" data-id="5" onclick="selectPoint(5)">
+            <circle cx="260" cy="283" r="14" class="hs-circle"/>
+            <text x="260" y="288" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">5</text>
+          </g>
+          <!-- 6: Maha Mandapa -->
+          <g class="hotspot" data-id="6" onclick="selectPoint(6)">
+            <circle cx="260" cy="165" r="14" class="hs-circle"/>
+            <text x="260" y="170" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">6</text>
+          </g>
+          <!-- 7: Navagraha -->
+          <g class="hotspot" data-id="7" onclick="selectPoint(7)">
+            <circle cx="377" cy="270" r="14" class="hs-circle"/>
+            <text x="377" y="275" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">7</text>
+          </g>
+          <!-- 8: Chowdeshwari -->
+          <g class="hotspot" data-id="8" onclick="selectPoint(8)">
+            <circle cx="102" cy="253" r="14" class="hs-circle"/>
+            <text x="102" y="258" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">8</text>
+          </g>
+          <!-- 9: Durga Devi -->
+          <g class="hotspot" data-id="9" onclick="selectPoint(9)">
+            <circle cx="156" cy="253" r="14" class="hs-circle"/>
+            <text x="156" y="258" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">9</text>
+          </g>
+          <!-- 10: Brahma Shila -->
+          <g class="hotspot" data-id="10" onclick="selectPoint(10)">
+            <circle cx="100" cy="380" r="14" class="hs-circle"/>
+            <text x="100" y="385" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">10</text>
+          </g>
+          <!-- 11: Nimb Deepa Stambha -->
+          <g class="hotspot" data-id="11" onclick="selectPoint(11)">
+            <circle cx="142" cy="380" r="14" class="hs-circle"/>
+            <text x="142" y="385" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">11</text>
+          </g>
+
+          <!-- Compass -->
+          <g transform="translate(490,50)">
+            <circle cx="0" cy="0" r="18" fill="rgba(0,0,0,.5)" stroke="#C8960C" stroke-width="1"/>
+            <text x="0" y="-6" text-anchor="middle" fill="#C8960C" font-size="8" font-family="Arial">N</text>
+            <text x="0" y="11" text-anchor="middle" fill="#8B7355" font-size="7" font-family="Arial">S</text>
+            <text x="-12" y="4" text-anchor="middle" fill="#8B7355" font-size="7" font-family="Arial">W</text>
+            <text x="12" y="4" text-anchor="middle" fill="#8B7355" font-size="7" font-family="Arial">E</text>
+            <line x1="0" y1="-14" x2="0" y2="14" stroke="#C8960C" stroke-width="1"/>
+            <line x1="-14" y1="0" x2="14" y2="0" stroke="#8B7355" stroke-width="1"/>
+            <polygon points="0,-14 -3,-2 3,-2" fill="#C8960C"/>
+          </g>
+
+          <!-- Title inside map -->
+          <text x="270" y="22" text-anchor="middle" fill="#C8960C" font-size="10" font-family="Arial" font-weight="bold" letter-spacing="1">FLOOR PLAN · TOP VIEW</text>
+        </svg>
+        <style>
+          .hs-circle {
+            fill: #7B1A1A; stroke: #C8960C; stroke-width: 2;
+            filter: drop-shadow(0 0 6px rgba(200,150,12,.6));
+            transition: all .2s;
+          }
+          .hotspot:hover .hs-circle, .hotspot.active .hs-circle {
+            fill: #C8960C; stroke: #F0C040;
+            filter: drop-shadow(0 0 14px rgba(240,192,64,1));
+          }
+        </style>
+      </div>
+
+      <!-- INFO PANEL -->
+      <div class="info-panel" id="infoPanel">
+        <div class="info-panel-placeholder" id="placeholderMsg">
+          <div class="tap-icon">🛕</div>
+          <p>Tap a numbered marker on the floor plan to explore each area of the temple</p>
+        </div>
+        <div id="pointDetail" style="display:none">
+          <span class="point-num" id="pointNum">1</span>
+          <h3 id="pointTitle">Main Entrance</h3>
+          <div class="lang-btns">
+            <button class="lang-btn active" id="btnEN" onclick="setLang('en')">🇬🇧 English</button>
+            <button class="lang-btn" id="btnKN" onclick="setLang('kn')">🇮🇳 ಕನ್ನಡ</button>
+          </div>
+          <p id="pointDesc">Description here</p>
+          <div class="audio-bar">
+            <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+            <div class="audio-label">
+              <strong id="audioLang">English Audio</strong>
+              <span>Tap to listen</span>
+            </div>
+            <button class="stop-btn" onclick="stopAudio()">■ Stop</button>
+          </div>
+          <div class="kannada-text" id="kannadaText" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend" id="legend"></div>
+  </div>
+</section>
+
+<!-- ABOUT / HISTORY -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Divine Origins</div>
+    <h2 class="section-title">History & Spiritual Significance</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">📜</div>
+        <h4>Ancient Roots</h4>
+        <p>The original Banashankari shrine traces back to the 7th century AD during the Badami Chalukya dynasty. King Jagadekamalla I installed the goddess image in 603 AD. The Skanda Purana and Padma Purana describe how Goddess Shakambari — Banashankari's earlier form — slew the demon Durgamasura to protect humanity.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🏛️</div>
+        <h4>Founding of Bengaluru Temple</h4>
+        <p>In 1915, a devoted merchant named Basappa (Somanna) Shetty dreamt of the Goddess commanding him to bring her idol from Badami. He obeyed, and the idol was ceremonially installed on May 21, 1915 — giving the entire neighbourhood its name: Banashankari.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🦁</div>
+        <h4>The Deity</h4>
+        <p>The black stone idol depicts Goddess Banashankari seated majestically on a lion, trampling the demon under her foot. She holds eight arms bearing a trishul (trident), damaru (drum), khadga (sword), khetha (shield), skull cup, Vedic scriptures, a ghanta (war bell), and a severed demon head — embodying total divine power.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🕯️</div>
+        <h4>The Rahukala Miracle</h4>
+        <p>The temple's most unique feature: the Goddess is worshipped during Rahukala — traditionally the most inauspicious time in Hindu belief. Devotees strongly believe that praying here during Rahukala removes all hardships, poverty, and suffering. This practice stems from a miraculous legend of three divine women who appeared during Rahukala and disappeared after the puja, believed to be the Goddess herself.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🍋</div>
+        <h4>Lemon Lamp Offering</h4>
+        <p>The signature ritual of this temple is the Nimb Deepa — lighting oil lamps inside half-cut lemon peels with the pulp removed. This is offered by thousands of devotees as a symbol of surrendering one's ego and illuminating the soul with divine light. The lemon lamp stand (Nimb Deepa Stambha) near the main temple holds these sacred offerings.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🌿</div>
+        <h4>Shakambari – The Vegetarian Goddess</h4>
+        <p>Banashankari is also called Shakambari — meaning "The Goddess of Vegetables." She is worshipped with offerings of fresh fruits, vegetables, coconuts, and flowers rather than animal sacrifice, making this temple beloved across communities for its peaceful and vegetarian devotional traditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMINGS & PUJA -->
+<section id="timings">
+  <div class="section-inner">
+    <div class="section-label">Daily Schedule</div>
+    <h2 class="section-title">Temple Timings & Puja</h2>
+    <div class="section-divider"></div>
+    <div class="timings-grid">
+      <div class="timing-card">
+        <div class="time">6:00 AM</div>
+        <div class="label">Temple Opens</div>
+        <div class="desc">Morning darshan begins. Mangalarati & Abhishekam</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">7:40 AM</div>
+        <div class="label">Astothram</div>
+        <div class="desc">108 names of the Goddess chanted by priests</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">12:00 PM</div>
+        <div class="label">Noon Puja</div>
+        <div class="desc">Midday offerings & Rahukala special puja</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">6:00 PM</div>
+        <div class="label">Evening Aarti</div>
+        <div class="desc">Deeparadhana with lighted oil lamps</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">9:00 PM</div>
+        <div class="label">Temple Closes</div>
+        <div class="desc">Night closure after final puja</div>
+      </div>
+      <div class="timing-card">
+        <div class="time">Tue · Fri · Sun</div>
+        <div class="label">Special Days</div>
+        <div class="desc">Large crowds & extended puja rituals</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem; background:rgba(200,150,12,.06); border:1px solid rgba(200,150,12,.2); border-radius:10px; padding:1.6rem;">
+      <h4 style="color:var(--gold-light);margin-bottom:1rem;font-family:'Cinzel Decorative',serif;font-size:1rem;">Ritual Practices</h4>
+      <ul class="tips-list">
+        <li><span class="tip-icon">🪔</span><span><strong>Abhishekam</strong> — Ritual bathing of the idol with milk, honey, water, and sacred substances. Purifies the devotee's mind and body.</span></li>
+        <li><span class="tip-icon">🌸</span><span><strong>Alankaram</strong> — Decoration of the Goddess with fresh flowers, silk garments, and jewellery. Offered by families as a mark of devotion.</span></li>
+        <li><span class="tip-icon">📿</span><span><strong>Archana</strong> — Recitation of the Goddess's 108 names (Astothram) while offering flowers one by one at the feet of the deity.</span></li>
+        <li><span class="tip-icon">🔥</span><span><strong>Deeparadhana</strong> — Ritual of waving lit oil lamps before the Goddess. Symbolises the removal of ignorance and the arrival of divine wisdom.</span></li>
+        <li><span class="tip-icon">🍋</span><span><strong>Nimb Deepa (Lemon Lamp)</strong> — The temple's signature offering — a lamp lit inside a halved lemon, representing surrender of ego to the Divine Mother.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVALS -->
+<section id="festivals">
+  <div class="section-inner">
+    <div class="section-label">Sacred Calendar</div>
+    <h2 class="section-title">Festivals & Celebrations</h2>
+    <div class="section-divider"></div>
+    <div class="festival-list">
+      <div class="festival-card">
+        <div class="month">January · February</div>
+        <h4>Banashankari Jatre</h4>
+        <p>The grand annual fair — the most spectacular celebration at the temple, drawing hundreds of thousands of devotees. Features cultural programmes, a chariot procession (Rath Yatra), boat festival, and market fair.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">March · April (Chaitra)</div>
+        <h4>Chaitra Navaratri</h4>
+        <p>Nine nights of worship of Navadurga — the nine forms of the Divine Mother. Each day is dedicated to a different form of the Goddess with special pujas.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">September 13</div>
+        <h4>Banashankari Jayanti</h4>
+        <p>Birthday of Goddess Banashankari Amma, celebrated with great pomp. Thousands of devotees stream in for special abhishekam, alankaram, and midnight puja.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">September · October (Ashwin)</div>
+        <h4>Navaratri / Dussehra</h4>
+        <p>Nine nights of the warrior Goddess. Culminates on Vijayadasami with Ayudha Puja — the blessing of tools and instruments — a deeply Kannadiga tradition.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">October · November</div>
+        <h4>Deepavali</h4>
+        <p>The festival of lights celebrated with special oil lamp offerings and illumination of the entire temple complex. Thousands of lemon lamps are lit by devotees.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">February · March</div>
+        <h4>Maha Shivratri</h4>
+        <p>A grand fair is organised at the temple in honour of Lord Shiva, the consort of Parvati (of whom Banashankari is an incarnation). All-night vigil and puja.</p>
+      </div>
+      <div class="festival-card">
+        <div class="month">December · January (Pushya)</div>
+        <h4>Temple Anniversary</h4>
+        <p>The Brahma Rathotsava — the grand chariot festival marking the founding anniversary of the temple. The Utsava Murthy (festival idol) is carried in a decorated chariot around the temple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISITOR GUIDE -->
+<section id="visit">
+  <div class="section-inner">
+    <div class="section-label">Practical Information</div>
+    <h2 class="section-title">Visitor Guide</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div>
+        <h4 style="color:var(--gold-light);font-size:1.05rem;margin-bottom:1rem;">Do's & Customs</h4>
+        <ul class="tips-list">
+          <li><span class="tip-icon">👗</span><span>Dress modestly in traditional attire — sarees, salwars for women; dhotis, kurtas or formal clothes for men. Avoid shorts or sleeveless clothing.</span></li>
+          <li><span class="tip-icon">👟</span><span>Remove footwear before entering the temple compound. Footwear stands are available outside.</span></li>
+          <li><span class="tip-icon">🙏</span><span>Maintain silence and reverence during puja times. Switch phones to silent mode.</span></li>
+          <li><span class="tip-icon">🕯️</span><span>You may purchase lemon lamps (Nimb Deepa) at the counter and offer them — it is the most auspicious offering at this temple.</span></li>
+          <li><span class="tip-icon">🌺</span><span>Offerings of fresh coconuts, flowers, fruits, and vegetables are considered auspicious for Shakambari Devi.</span></li>
+          <li><span class="tip-icon">📷</span><span>Photography in the outer compound is generally permitted but not inside the sanctum. Always ask the priests.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--gold-light);font-size:1.05rem;margin-bottom:1rem;">Important Notes</h4>
+        <ul class="tips-list">
+          <li><span class="tip-icon">⏰</span><span>Arrive early (before 8 AM) on Tuesdays, Fridays, and Sundays to avoid very long queues.</span></li>
+          <li><span class="tip-icon">🔔</span><span>During Rahukala — which changes daily — the temple atmosphere is especially intense and spiritually charged. Devotees specifically plan visits around this time.</span></li>
+          <li><span class="tip-icon">🏛️</span><span>The temple follows Shaiva Agama Siddhantha rites strictly. All rituals are conducted by trained hereditary priests.</span></li>
+          <li><span class="tip-icon">🌍</span><span>The temple is open to all — devotees of any faith are welcome to visit and experience the peace of the temple.</span></li>
+          <li><span class="tip-icon">💰</span><span>Sevas (special pujas) can be booked at the temple counter. Prasad is distributed after each major puja.</span></li>
+          <li><span class="tip-icon">🌧️</span><span>Best time to visit: Early mornings (6–8 AM) on weekdays for a peaceful darshan. During festivals, expect large, joyful crowds.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section id="reach">
+  <div class="section-inner">
+    <div class="section-label">Getting There</div>
+    <h2 class="section-title">How to Reach</h2>
+    <div class="section-divider"></div>
+    <p style="color:rgba(250,243,224,.75);margin-bottom:2rem;font-size:1rem;">
+      📍 Sri Banashankari Temple, S. Kariyappa Road, Banashankari Temple Ward, Bengaluru – 560070
+    </p>
+    <div class="reach-grid">
+      <div class="reach-card">
+        <div class="icon">🚇</div>
+        <h4>Metro</h4>
+        <p>Banashankari Metro Station on the <strong>Green Line (Namma Metro)</strong>. Just 5–10 minutes walk from the station to the temple.</p>
+      </div>
+      <div class="reach-card">
+        <div class="icon">🚌</div>
+        <h4>Bus (BMTC)</h4>
+        <p>Numerous BMTC buses stop at Banashankari Bus Stop, directly outside the temple complex on Kanakapura Road.</p>
+      </div>
+      <div class="reach-card">
+        <div class="icon">🛺</div>
+        <h4>Auto / Cab</h4>
+        <p>Readily available throughout Bengaluru. Ola, Uber, and local autos all have Banashankari Temple as a common destination.</p>
+      </div>
+      <div class="reach-card">
+        <div class="icon">🚗</div>
+        <h4>By Car</h4>
+        <p>Ample parking available near the temple. 8.5 km from Bengaluru City Railway Station via Kanakapura Road.</p>
+      </div>
+      <div class="reach-card">
+        <div class="icon">✈️</div>
+        <h4>From Airport</h4>
+        <p>Kempegowda International Airport is ~40 km away. Take the Purple Line Metro or a cab to reach the temple.</p>
+      </div>
+      <div class="reach-card">
+        <div class="icon">🗺️</div>
+        <h4>Map</h4>
+        <p><a href="https://maps.google.com/?q=Banashankari+Temple+Bangalore" target="_blank" style="color:var(--gold-light);">Open in Google Maps →</a><br>Search "Sri Banashankari Amma Temple"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR CODE -->
+<section id="qr-section">
+  <div class="section-inner">
+    <div class="section-label">Share the Temple</div>
+    <h2 class="section-title">Temple QR Code</h2>
+    <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+    <p style="color:rgba(250,243,224,.75);margin-bottom:.5rem;font-size:1rem;">
+      Scan this QR code to open this temple guide on any device. Share it with family and fellow devotees.
+    </p>
+    <div id="qrcode"></div>
+    <p class="qr-url" id="qrurl"></p>
+    <p style="color:rgba(200,150,12,.5);font-size:.85rem;margin-top:.5rem;">
+      Share this page with devotees visiting the temple
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:1.5rem;margin-bottom:.5rem;">🙏</div>
+  <strong>ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮ ದೇವಸ್ಥಾನ</strong><br>
+  Sri Banashankari Amma Temple · Banashankari, Bengaluru, Karnataka<br>
+  <span style="font-style:italic;">"ಅಮ್ಮ ಎಲ್ಲರನ್ನೂ ಕಾಪಾಡಲಿ" — May the Mother protect all</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── POINT DATA ──
+const points = {
+  1: {
+    title: "Main Entrance (West)",
+    en: "Welcome to the Main Entrance of Sri Banashankari Amma Temple, facing west. This grand gateway is the principal entrance through which millions of devotees enter to seek the blessings of Goddess Banashankari. As you pass through this threshold, you are entering a space of immense spiritual energy. Traditionally, devotees pause here to bow their heads and offer a silent prayer before proceeding toward the sanctum. The westward orientation of this entrance follows the ancient Agama Shastra guidelines for Shakti temples. Remove your footwear before entering and carry only love and devotion in your heart.",
+    kn: "ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮ ದೇವಸ್ಥಾನದ ಮುಖ್ಯ ಪ್ರವೇಶದ್ವಾರಕ್ಕೆ ಸ್ವಾಗತ. ಇದು ಪಶ್ಚಿಮ ದಿಕ್ಕಿಗೆ ಮುಖ ಮಾಡಿದೆ. ಈ ಮಹಾ ದ್ವಾರದ ಮೂಲಕ ಲಕ್ಷಾಂತರ ಭಕ್ತರು ಅಮ್ಮನ ಆಶೀರ್ವಾದ ಪಡೆಯಲು ಪ್ರವೇಶಿಸುತ್ತಾರೆ. ಒಳಗೆ ಹೆಜ್ಜೆ ಇಡುವ ಮೊದಲು ಮನಸ್ಸಿನಲ್ಲಿ ಅಮ್ಮನ ಧ್ಯಾನ ಮಾಡಿ. ಚಪ್ಪಲಿ ತೆಗೆದು ಭಕ್ತಿಯಿಂದ ಒಳ ಪ್ರವೇಶಿಸಿ.",
+    kannada_display: "ಮುಖ್ಯ ಪ್ರವೇಶ ದ್ವಾರ (ಪಶ್ಚಿಮ): ಇಲ್ಲಿಂದ ಆರಂಭವಾಗುತ್ತದೆ ಅಮ್ಮನ ಅನಂತ ಭಕ್ತಿ ಯಾತ್ರೆ."
+  },
+  2: {
+    title: "Secondary Entrance (East)",
+    en: "This is the Eastern Secondary Entrance of the temple. Used for exit or alternate entry, this gate faces east — the direction of the rising sun, symbolising new beginnings and the dawn of divine consciousness. In many temple traditions, one enters from the west and exits through the east, completing a spiritual circle. This entrance also serves large crowds during festivals when the main entrance becomes congested. The arched gateway here reflects the Vijayanagara architectural style that the rebuilt temple follows.",
+    kn: "ಇದು ದೇವಸ್ಥಾನದ ಪೂರ್ವ ದ್ವಾರ. ಇದು ಸೂರ್ಯೋದಯದ ದಿಕ್ಕಾದ ಪೂರ್ವಕ್ಕೆ ಮುಖ ಮಾಡಿದ್ದು, ಹೊಸ ಜೀವನ ಮತ್ತು ಪ್ರಜ್ಞೆಯ ಸಂಕೇತ. ಹಬ್ಬ ಹರಿದಿನಗಳಲ್ಲಿ ಹೆಚ್ಚಿನ ಜನಸಂದಣಿ ಇದ್ದಾಗ ಈ ದ್ವಾರದ ಮೂಲಕ ಭಕ್ತರು ಹೊರ ಹೋಗಬಹುದು.",
+    kannada_display: "ಪೂರ್ವ ದ್ವಾರ: ಸಾಮಾನ್ಯವಾಗಿ ಬಾಹ್ಯ ನಿರ್ಗಮನ ಮಾರ್ಗವಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ."
+  },
+  3: {
+    title: "Mukh Mandapa (Sanctum Approach Hall)",
+    en: "The Mukh Mandapa is the Sanctum Approach Hall — your gateway into the sacred heart of the temple. This outer porch is where the transition from the mundane world to the sacred begins. In traditional temple architecture, the Mukh Mandapa serves as a place to compose oneself, bow before entering, and mentally prepare for the darshan of the Goddess. Look up at the carved pillars here — they depict Shiva, Parvati, Vishnu, Narasimha, Ganapati, Brahma, and other celestial beings, reminding us of the entire cosmic order presided over by the Divine Mother.",
+    kn: "ಮುಖ ಮಂಟಪ — ದೇವಸ್ಥಾನದ ಒಳ ಪ್ರವೇಶದ ಹೊಸ್ತಿಲು. ಇಲ್ಲಿ ನಿಂತು ಮನಸ್ಸನ್ನು ಶಾಂತಗೊಳಿಸಿ. ಕಂಬಗಳಲ್ಲಿ ಶಿವ, ಪಾರ್ವತಿ, ವಿಷ್ಣು, ಗಣಪತಿ ಮುಂತಾದ ದೇವ-ದೇವಿಯರ ಶಿಲ್ಪಗಳಿವೆ. ಇಲ್ಲಿ ಒಂದು ಕ್ಷಣ ನಿಂತು ಅಮ್ಮನ ಸ್ಮರಣೆ ಮಾಡಿ.",
+    kannada_display: "ಮುಖ ಮಂಟಪ: ದೇವಾಲಯದ ಮೊದಲ ಪ್ರವೇಶ ಮಂಟಪ. ಶಿವ, ಪಾರ್ವತಿ, ವಿಷ್ಣುವಿನ ಶಿಲ್ಪಗಳಿರುವ ಅದ್ಭುತ ಕಂಬಗಳು ಇಲ್ಲಿವೆ."
+  },
+  4: {
+    title: "Dwaaja Stambha (Flag Post Platform)",
+    en: "The Dwaaja Stambha — or Flag Post — stands majestically in front of the main temple, reaching toward the sky. In Hindu temple tradition, the Dwaja Stambha represents the axis between earth and heaven, and the flag flown atop it signals that the Goddess is present and receiving devotees. Devotees traditionally circumambulate or walk around the Dwaaja Stambha three times before entering the sanctum, symbolising their surrender of ego at the feet of the Goddess. The golden spire of the flag post glistens in the sunlight, visible from afar to guide devotees to the temple.",
+    kn: "ಧ್ವಜ ಸ್ತಂಭ — ಆಕಾಶಕ್ಕೆ ಮುಟ್ಟುವ ಧ್ವಜದ ಕಂಬ. ಇದು ಭೂಮಿ ಮತ್ತು ಸ್ವರ್ಗದ ನಡುವಿನ ಸಂಬಂಧದ ಸಂಕೇತ. ಭಕ್ತರು ಸಾಮಾನ್ಯವಾಗಿ ಈ ಸ್ತಂಭವನ್ನು ಮೂರು ಬಾರಿ ಪ್ರದಕ್ಷಿಣೆ ಹಾಕಿ ನಂತರ ಒಳ ಹೋಗುತ್ತಾರೆ. ಇದು ಅಹಂಕಾರ ತ್ಯಾಗದ ಸಂಕೇತ.",
+    kannada_display: "ಧ್ವಜ ಸ್ತಂಭ: ಭಕ್ತರು ಇದನ್ನು ಮೂರು ಬಾರಿ ಪ್ರದಕ್ಷಿಣೆ ಹಾಕಿ ದೇವಿಯ ಸನ್ನಿಧಿಗೆ ಹೋಗುತ್ತಾರೆ."
+  },
+  5: {
+    title: "Ardhamandapa (Intermediate Mandapa)",
+    en: "The Ardhamandapa — or Intermediate Hall — is the ante-chamber sitting between the outer Mukh Mandapa and the innermost Maha Mandapa. As you walk through this corridor, you are moving deeper into the sacred space, leaving the outer world further behind. This hall traditionally serves as a place for devotees to slow their breathing, offer a namaskara, and tune their consciousness to the frequency of the divine. The ancient Tamil and Sanskrit tradition says: 'With each step inward, let your mind become more still.' The silence here is itself the Goddess's gift.",
+    kn: "ಅರ್ಧಮಂಡಪ — ಮುಖ ಮಂಟಪ ಮತ್ತು ಮಹಾ ಮಂಟಪದ ನಡುವಿನ ಮಧ್ಯಂತರ ಕೊಠಡಿ. ಒಳಗೆ ಹೋಗುತ್ತಿದ್ದಂತೆ ಮನಸ್ಸು ಮತ್ತಷ್ಟು ಶಾಂತವಾಗಲಿ. ಇಲ್ಲಿ ನಿಂತು ಒಂದು ನಮಸ್ಕಾರ ಮಾಡಿ ಮುಂದೆ ಸಾಗಿ.",
+    kannada_display: "ಅರ್ಧಮಂಟಪ: ಮಧ್ಯಂತರ ಮಂಟಪ — ಇಲ್ಲಿ ಮನಸ್ಸನ್ನು ಶಾಂತಗೊಳಿಸಿ ದೇವಿ ಧ್ಯಾನ ಮಾಡಿ."
+  },
+  6: {
+    title: "Maha Mandapa (Main Mandapa)",
+    en: "You are now at the Maha Mandapa — the Main Assembly Hall and the heart of the temple. This is where the divine presence of Goddess Banashankari Amma is most powerfully felt. The black stone idol of the Goddess is enshrined here — depicting her seated on a lion, trampling the demon Durgamasura, with eight arms holding sacred weapons and divine objects. She is the sixth incarnation of Durga, the warrior goddess who protects all living beings. The icon is adorned with flowers, silk garments, and gold jewellery. Devotees believe that one genuine glance at the Goddess — what is called 'Darshan' — can dissolve lifetimes of karma. Stand here in silence, gaze at the Goddess, and let her grace wash over you.",
+    kn: "ಮಹಾ ಮಂಟಪ — ದೇವಾಲಯದ ಕೇಂದ್ರ ಬಿಂದು. ಇಲ್ಲಿ ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮನ ಕಪ್ಪು ಶಿಲಾ ಮೂರ್ತಿ ಇದೆ. ಸಿಂಹದ ಮೇಲೆ ಕುಳಿತ, ದಾನವನನ್ನು ಪಾದದಡಿ ಹಾಕಿಕೊಂಡ, ಎಂಟು ಕೈಗಳಲ್ಲಿ ಅಸ್ತ್ರ-ಶಸ್ತ್ರ ಹಿಡಿದ ಅಮ್ಮ. ಇಲ್ಲಿ ನಿಂತು ಅಮ್ಮನ ದರ್ಶನ ಮಾಡಿ — ಆ ಒಂದು ದೃಷ್ಟಿಯೇ ಜೀವನ ಬದಲಿಸಬಲ್ಲದು. ಜಯ ಅಮ್ಮ! ಜಯ ಬನಶಂಕರಿ!",
+    kannada_display: "ಮಹಾ ಮಂಟಪ: ಅಮ್ಮನ ಮೂರ್ತಿ ಇಲ್ಲಿದೆ. ಸಿಂಹವಾಹನ, ಅಷ್ಟಭುಜ, ದಾನವ ಮರ್ದಿನಿ — ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮ. ಜಯ ಅಮ್ಮ!"
+  },
+  7: {
+    title: "Navagraha Temple (Inside Main Temple – South Side)",
+    en: "Located on the southern side inside the main temple complex, the Navagraha Temple is dedicated to the nine planetary deities of Hindu astrology: Surya (Sun), Chandra (Moon), Mangala (Mars), Budha (Mercury), Guru (Jupiter), Shukra (Venus), Shani (Saturn), Rahu, and Ketu. Devotees worship here to seek relief from the malefic effects of planets in their horoscopes. Each planet governs different aspects of life — health, wealth, relationships, and karma. It is traditional to walk around the Navagraha shrine in clockwise and counter-clockwise directions, and to light sesame oil lamps on Saturdays for Shani. Many devotees visit here before seeing the main Goddess to cleanse their planetary afflictions.",
+    kn: "ನವಗ್ರಹ ದೇವಸ್ಥಾನ — ಮುಖ್ಯ ದೇವಾಲಯದ ದಕ್ಷಿಣ ಭಾಗದಲ್ಲಿದೆ. ಸೂರ್ಯ, ಚಂದ್ರ, ಮಂಗಳ, ಬುಧ, ಗುರು, ಶುಕ್ರ, ಶನಿ, ರಾಹು, ಕೇತು — ಒಂಬತ್ತು ಗ್ರಹಗಳ ಪ್ರತಿಷ್ಠೆ ಇಲ್ಲಿದೆ. ಗ್ರಹ ದೋಷ ನಿವಾರಣೆಗಾಗಿ ಭಕ್ತರು ಇಲ್ಲಿ ಪ್ರಾರ್ಥಿಸುತ್ತಾರೆ. ಶನಿವಾರ ಎಳ್ಳೆಣ್ಣೆ ದೀಪ ಹಚ್ಚುವುದು ವಿಶೇಷ.",
+    kannada_display: "ನವಗ್ರಹ ದೇವಸ್ಥಾನ: ಒಂಬತ್ತು ಗ್ರಹಗಳ ಆರಾಧನೆ. ಗ್ರಹ ದೋಷ ಶಾಂತಿಗಾಗಿ ಇಲ್ಲಿ ಪ್ರಾರ್ಥಿಸಿ."
+  },
+  8: {
+    title: "Chowdeshwari Temple (With Gopuram)",
+    en: "The Chowdeshwari Temple, with its distinctive Gopuram tower, stands on the left or northern side of the main temple complex. Chowdeshwari is a fierce form of the Goddess Shakti — a powerful protector who guards devotees from evil forces. The gopuram here is a smaller version of the grand towered gateways typical of South Indian temple architecture, decorated with stucco figures of deities and celestial beings. Devotees seeking protection from enemies, evil eye, and harmful energies particularly worship Chowdeshwari. After taking darshan of the main Goddess, paying respects at this shrine is considered very auspicious.",
+    kn: "ಚೌಡೇಶ್ವರಿ ದೇವಸ್ಥಾನ — ಮುಖ್ಯ ದೇವಾಲಯದ ಎಡ/ಉತ್ತರ ಭಾಗದಲ್ಲಿದೆ. ಇದರ ಮೇಲೆ ಗೋಪುರ ಇದೆ. ಚೌಡೇಶ್ವರಿ ಶಕ್ತಿ ದೇವಿಯ ಉಗ್ರ ರೂಪ. ದಷ್ಟ-ಶಕ್ತಿಗಳಿಂದ ರಕ್ಷಣೆ ಕೋರುವ ಭಕ್ತರು ಇಲ್ಲಿ ಪ್ರಾರ್ಥಿಸುತ್ತಾರೆ. ಮುಖ್ಯ ದರ್ಶನದ ನಂತರ ಇಲ್ಲಿ ವಂದಿಸಿ.",
+    kannada_display: "ಚೌಡೇಶ್ವರಿ ದೇವಸ್ಥಾನ (ಗೋಪುರ ಸಹಿತ): ಶಕ್ತಿಯ ಉಗ್ರ ರೂಪ — ರಕ್ಷಣೆ ಮತ್ತು ಶಕ್ತಿ ನೀಡುವ ದೇವಿ."
+  },
+  9: {
+    title: "Durga Devi Temple (With Gopuram)",
+    en: "The Durga Devi Temple stands beside the Chowdeshwari Temple, also adorned with its own gopuram. Goddess Durga — the supreme warrior goddess — is revered here as the destroyer of all evil and the protector of dharma. Durga Devi is the mother form of which Banashankari herself is the sixth incarnation, making this shrine deeply connected to the presiding deity of the main temple. Navratri is celebrated here with exceptional devotion — nine nights honouring the nine forms of Durga. Devotees seeking victory over obstacles, courage in difficult times, and blessings for family well-being come here to seek the Goddess's grace.",
+    kn: "ದುರ್ಗಾ ದೇವಿ ದೇವಸ್ಥಾನ — ಗೋಪುರ ಸಹಿತ. ದುರ್ಗಾ ದೇವಿಯೇ ಬನಶಂಕರಿ ಅಮ್ಮನ ಆರನೇ ಅವತಾರ. ಈ ದೇವಸ್ಥಾನ ಮುಖ್ಯ ಅಮ್ಮನೊಂದಿಗೆ ಆಳವಾದ ಸಂಬಂಧ ಹೊಂದಿದೆ. ನವರಾತ್ರಿಯಲ್ಲಿ ಇಲ್ಲಿ ವಿಶೇಷ ಪೂಜೆ ನಡೆಯುತ್ತದೆ. ಜಯ ದುರ್ಗೆ!",
+    kannada_display: "ದುರ್ಗಾ ದೇವಿ ದೇವಸ್ಥಾನ: ಬನಶಂಕರಿ ಅಮ್ಮನ ಮೂಲ ರೂಪ. ನವರಾತ್ರಿ ಆಚರಣೆ ಇಲ್ಲಿ ವಿಶೇಷ."
+  },
+  10: {
+    title: "Spherical Stone (Brahma Shila)",
+    en: "The Brahma Shila is a sacred spherical stone placed in the temple compound, representing the primordial cosmic egg — the Brahmanda — from which all creation is said to have emerged. In Hindu cosmology, Lord Brahma the creator was born from a golden egg floating on the waters of eternity. The spherical form symbolises completeness, wholeness, and the unmanifest potential of creation. Touching or circumambulating this stone is believed to bestow creative intelligence, remove blocks in one's endeavours, and connect the devotee to the source of all existence. It is one of the most distinctive and ancient sacred objects in this temple.",
+    kn: "ಬ್ರಹ್ಮ ಶಿಲ — ದೇವಸ್ಥಾನದ ಆವರಣದಲ್ಲಿರುವ ಪರಿಪೂರ್ಣ ವೃತ್ತಾಕಾರದ ಶಿಲ. ಇದು ಬ್ರಹ್ಮಾಂಡದ ಸಂಕೇತ — ಎಲ್ಲ ಸೃಷ್ಟಿಯ ಮೂಲ ತತ್ವ. ಈ ಶಿಲವನ್ನು ಮುಟ್ಟುವುದರಿಂದ ಬುದ್ಧಿ ಶಕ್ತಿ ಹೆಚ್ಚಾಗುತ್ತದೆ ಮತ್ತು ಜೀವನದ ಅಡ್ಡಿ-ಆತಂಕಗಳು ದೂರವಾಗುತ್ತವೆ ಎಂಬ ನಂಬಿಕೆಯಿದೆ.",
+    kannada_display: "ಬ್ರಹ್ಮ ಶಿಲ: ಬ್ರಹ್ಮಾಂಡದ ಸಂಕೇತ — ಸ್ಪರ್ಶಿಸಿ ಸೃಷ್ಟಿ ಶಕ್ತಿ ಪಡೆಯಿರಿ."
+  },
+  11: {
+    title: "Lemon Lamp Stand (Nimb Deepa Stambha)",
+    en: "The Nimb Deepa Stambha — the Lemon Lamp Stand — is the most iconic ritual object unique to this temple. This is where thousands of devotees place their lemon lamps: a fresh lemon cut in half, the pulp removed, filled with oil, and lit with a wick. The lemon represents the sour hardships of life, the oil is the devotee's faith, and the flame is the grace of the Goddess. As the lamp burns, it is believed the Goddess dissolves all difficulties — poverty, illness, broken relationships, and suffering. This ritual is especially powerful during Rahukala. After offering your lemon lamp here, take a moment to stand in silence and feel the warmth of ten thousand flames offered in love, devotion, and hope.",
+    kn: "ನಿಂಬ ದೀಪ ಸ್ತಂಭ — ಇದು ಈ ದೇವಸ್ಥಾನದ ಅತ್ಯಂತ ವಿಶಿಷ್ಟ ರೂಢಿ. ಅರ್ಧ ನಿಂಬೆ ಹಣ್ಣನ್ನು ಕತ್ತರಿಸಿ, ತಿರುಳು ತೆಗೆದು, ಎಣ್ಣೆ ಹಾಕಿ, ಬತ್ತಿ ಹಚ್ಚಿ ಅಮ್ಮನ ಮುಂದೆ ಇಡಲಾಗುತ್ತದೆ. ನಿಂಬೆ ಹಣ್ಣು ಜೀವನದ ಕಷ್ಟ-ನಷ್ಟಗಳ ಸಂಕೇತ; ದೀಪ ಭಕ್ತಿಯ ಸಂಕೇತ. ಈ ದೀಪ ಅರ್ಪಿಸಿದರೆ ಬಡತನ, ರೋಗ, ಕಷ್ಟಗಳು ದೂರವಾಗುತ್ತವೆ ಎಂಬ ನಂಬಿಕೆ. ರಾಹುಕಾಲದಲ್ಲಿ ಈ ದೀಪ ಅರ್ಪಿಸುವುದು ಅತ್ಯಂತ ಶ್ರೇಷ್ಠ.",
+    kannada_display: "ನಿಂಬ ದೀಪ ಸ್ತಂಭ: ನಿಂಬೆ ದೀಪ ಅರ್ಪಿಸಿ — ಕಷ್ಟ ನಿವಾರಿಸಲು ಅಮ್ಮ ಸಿದ್ಧ."
+  }
+};
+
+let currentPoint = null;
+let currentLang = 'en';
+let utterance = null;
+let speaking = false;
+
+// Build legend
+const legendEl = document.getElementById('legend');
+Object.entries(points).forEach(([id, p]) => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `<div class="legend-dot"></div><span>${id}. ${p.title}</span>`;
+  item.onclick = () => selectPoint(parseInt(id));
+  legendEl.appendChild(item);
+});
+
+function selectPoint(id) {
+  stopAudio();
+  currentPoint = id;
+  const p = points[id];
+  document.getElementById('placeholderMsg').style.display = 'none';
+  document.getElementById('pointDetail').style.display = 'block';
+  document.getElementById('pointNum').textContent = id;
+  document.getElementById('pointTitle').textContent = p.title;
+
+  // Update hotspot styles
+  document.querySelectorAll('.hotspot').forEach(h => {
+    h.classList.remove('active');
+    h.querySelector('.hs-circle').setAttribute('fill', '#7B1A1A');
+  });
+  const active = document.querySelector(`.hotspot[data-id="${id}"]`);
+  if (active) {
+    active.classList.add('active');
+    active.querySelector('.hs-circle').setAttribute('fill', '#C8960C');
+  }
+
+  updateDisplay();
+  showToast(`📍 ${p.title}`);
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnKN').classList.toggle('active', lang === 'kn');
+  stopAudio();
+  updateDisplay();
+}
+
+function updateDisplay() {
+  if (!currentPoint) return;
+  const p = points[currentPoint];
+  const lang = currentLang;
+  document.getElementById('pointDesc').textContent = lang === 'en' ? p.en : p.kn;
+  document.getElementById('audioLang').textContent = lang === 'en' ? 'English Audio' : 'ಕನ್ನಡ ಆಡಿಯೋ';
+
+  const kEl = document.getElementById('kannadaText');
+  if (lang === 'en' && p.kannada_display) {
+    kEl.textContent = p.kannada_display;
+    kEl.style.display = 'block';
+  } else {
+    kEl.style.display = 'none';
+  }
+}
+
+function toggleAudio() {
+  if (speaking) { stopAudio(); return; }
+  playAudio();
+}
+
+function playAudio() {
+  if (!currentPoint) return;
+  if (!window.speechSynthesis) { showToast('⚠️ Audio not supported in this browser'); return; }
+  stopAudio();
+
+  const p = points[currentPoint];
+  const text = currentLang === 'en' ? p.en : p.kn;
+  utterance = new SpeechSynthesisUtterance(text);
+
+  if (currentLang === 'en') {
+    utterance.lang = 'en-IN';
+    utterance.rate = 0.88;
+    utterance.pitch = 1.0;
+    // Try to pick a warm voice
+    const voices = speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+      || voices.find(v => v.lang.startsWith('en-IN'))
+      || voices.find(v => v.lang.startsWith('en'));
+    if (preferred) utterance.voice = preferred;
+  } else {
+    utterance.lang = 'kn-IN';
+    utterance.rate = 0.82;
+    utterance.pitch = 1.05;
+    const voices = speechSynthesis.getVoices();
+    const kv = voices.find(v => v.lang.startsWith('kn'));
+    if (kv) utterance.voice = kv;
+  }
+
+  utterance.onstart = () => {
+    speaking = true;
+    document.getElementById('playBtn').textContent = '⏸';
+    document.getElementById('playBtn').classList.add('playing');
+  };
+  utterance.onend = utterance.onerror = () => {
+    speaking = false;
+    document.getElementById('playBtn').textContent = '▶';
+    document.getElementById('playBtn').classList.remove('playing');
+  };
+
+  speechSynthesis.speak(utterance);
+}
+
+function stopAudio() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  speaking = false;
+  const btn = document.getElementById('playBtn');
+  if (btn) { btn.textContent = '▶'; btn.classList.remove('playing'); }
+}
+
+// Load voices on init
+if (window.speechSynthesis) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+
+// Toast
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// QR Code
+window.addEventListener('load', () => {
+  const url = window.location.href.split('?')[0];
+  document.getElementById('qrurl').textContent = url;
+  try {
+    new QRCode(document.getElementById('qrcode'), {
+      text: url,
+      width: 200,
+      height: 200,
+      colorDark: '#1A0A00',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  } catch(e) {
+    document.getElementById('qrcode').innerHTML = '<p style="color:#C8960C;padding:1rem;">QR code will display when hosted online</p>';
+  }
+});
+
+// Nav active
+const sections = document.querySelectorAll('section[id], nav');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
